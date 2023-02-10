@@ -1,3 +1,4 @@
+@use "./variables";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap");
 
 * {
@@ -9,4 +10,76 @@
 #app {
   font-family: "Inter", sans-serif;
   font-size: 16px;
+}
+
+.normal {
+  background-color: variables.$bg-normal;
+}
+
+.fire {
+  background-color: variables.$bg-fire;
+}
+
+.water {
+  background-color: variables.$bg-water;
+}
+
+.electric {
+  background-color: variables.$bg-electric;
+}
+
+.grass {
+  background-color: variables.$bg-grass;
+}
+
+.ice {
+  background-color: variables.$bg-ice;
+}
+
+.fighting {
+  background-color: variables.$bg-fighting;
+}
+
+.poison {
+  background-color: variables.$bg-poison;
+}
+
+.ground {
+  background-color: variables.$bg-ground;
+}
+
+.flying {
+  background-color: variables.$bg-flying;
+}
+
+.psychic {
+  background-color: variables.$bg-psychic;
+}
+
+.bug {
+  background-color: variables.$bg-bug;
+}
+
+.rock {
+  background-color: variables.$bg-rock;
+}
+
+.ghost {
+  background-color: variables.$bg-ghost;
+}
+
+.dragon {
+  background-color: variables.$bg-dragon;
+}
+
+.dark {
+  background-color: variables.$bg-dark;
+}
+
+.steel {
+  background-color: variables.$bg-steel;
+}
+
+.fairy {
+  background-color: variables.$bg-fairy;
 }
