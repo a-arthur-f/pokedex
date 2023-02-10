@@ -12,74 +12,76 @@
   font-size: 16px;
 }
 
-.normal {
-  background-color: variables.$bg-normal;
-}
+.bg {
+  &-normal {
+    background-image: variables.$bg-normal;
+  }
 
-.fire {
-  background-color: variables.$bg-fire;
-}
+  &-fire {
+    background-image: variables.$bg-fire;
+  }
 
-.water {
-  background-color: variables.$bg-water;
-}
+  &-water {
+    background-image: variables.$bg-water;
+  }
 
-.electric {
-  background-color: variables.$bg-electric;
-}
+  &-electric {
+    background-image: variables.$bg-electric;
+  }
 
-.grass {
-  background-color: variables.$bg-grass;
-}
+  &-grass {
+    background-image: variables.$bg-grass;
+  }
 
-.ice {
-  background-color: variables.$bg-ice;
-}
+  &-ice {
+    background-image: variables.$bg-ice;
+  }
 
-.fighting {
-  background-color: variables.$bg-fighting;
-}
+  &-fighting {
+    background-image: variables.$bg-fighting;
+  }
 
-.poison {
-  background-color: variables.$bg-poison;
-}
+  &-poison {
+    background-image: variables.$bg-poison;
+  }
 
-.ground {
-  background-color: variables.$bg-ground;
-}
+  &-ground {
+    background-image: variables.$bg-ground;
+  }
 
-.flying {
-  background-color: variables.$bg-flying;
-}
+  &-flying {
+    background-image: variables.$bg-flying;
+  }
 
-.psychic {
-  background-color: variables.$bg-psychic;
-}
+  &-psychic {
+    background-image: variables.$bg-psychic;
+  }
 
-.bug {
-  background-color: variables.$bg-bug;
-}
+  &-bug {
+    background-image: variables.$bg-bug;
+  }
 
-.rock {
-  background-color: variables.$bg-rock;
-}
+  &-rock {
+    background-image: variables.$bg-rock;
+  }
 
-.ghost {
-  background-color: variables.$bg-ghost;
-}
+  &-ghost {
+    background-image: variables.$bg-ghost;
+  }
 
-.dragon {
-  background-color: variables.$bg-dragon;
-}
+  &-dragon {
+    background-image: variables.$bg-dragon;
+  }
 
-.dark {
-  background-color: variables.$bg-dark;
-}
+  &-dark {
+    background-image: variables.$bg-dark;
+  }
 
-.steel {
-  background-color: variables.$bg-steel;
-}
+  &-steel {
+    background-image: variables.$bg-steel;
+  }
 
-.fairy {
-  background-color: variables.$bg-fairy;
+  &-fairy {
+    background-image: variables.$bg-fairy;
+  }
 }

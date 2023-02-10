@@ -1,21 +1,96 @@
 $bg-header: #375c82;
 $bg-input: #4d7eafcc;
 
-$bg-normal: #a8a77a;
-$bg-fire: #ee8130;
-$bg-water: #6390f0;
-$bg-electric: #f7d02c;
-$bg-grass: #7ac74c;
-$bg-ice: #96d9d6;
-$bg-fighting: #c22e28;
-$bg-poison: #a33ea1;
-$bg-ground: #e2bf65;
-$bg-flying: #a98ff3;
-$bg-psychic: #f95587;
-$bg-bug: #a6b91a;
-$bg-rock: #b6a136;
-$bg-ghost: #735797;
-$bg-dragon: #6f35fc;
-$bg-dark: #705746;
-$bg-steel: #b7b7ce;
-$bg-fairy: #d685ad;
+$bg-normal: radial-gradient(
+  circle,
+  #a8a77a,
+  #a1a069,
+  #9a9958,
+  #939246,
+  #8c8b34
+);
+$bg-fire: radial-gradient(circle, #ee8130, #df7526, #d0681c, #c25c11, #b35004);
+$bg-water: radial-gradient(circle, #6390f0, #5480e2, #4470d4, #3360c6, #2051b8);
+$bg-electric: radial-gradient(
+  circle,
+  #f7d02c,
+  #debb26,
+  #c6a720,
+  #ae931b,
+  #977f15
+);
+$bg-grass: radial-gradient(circle, #7ac74c, #6db93f, #5fab32, #529d25, #449016);
+$bg-ice: radial-gradient(circle, #96d9d6, #7ec9c6, #65bab6, #4baaa6, #2a9b96);
+$bg-fighting: radial-gradient(
+  circle,
+  #c22e28,
+  #b22721,
+  #a21f19,
+  #921712,
+  #830f0b
+);
+$bg-poison: radial-gradient(
+  circle,
+  #a33ea1,
+  #9e369c,
+  #992d96,
+  #932391,
+  #8e178c
+);
+$bg-ground: radial-gradient(
+  circle,
+  #e2bf65,
+  #ceac54,
+  #bb9943,
+  #a88733,
+  #957522
+);
+$bg-flying: radial-gradient(
+  circle,
+  #a98ff3,
+  #987aed,
+  #8765e6,
+  #7650df,
+  #633ad8
+);
+$bg-psychic: radial-gradient(
+  circle,
+  #f95587,
+  #e74979,
+  #d63e6b,
+  #c4325e,
+  #b32651
+);
+$bg-bug: radial-gradient(circle, #a6b91a, #97a81a, #88981a, #7a881a, #6c7819);
+$bg-rock: radial-gradient(circle, #b6a136, #a8942f, #9a8727, #8c7a20, #7f6e19);
+$bg-ghost: radial-gradient(circle, #735797, #6b4b95, #633e93, #5b3191, #52238e);
+$bg-dragon: radial-gradient(
+  circle,
+  #6f35fc,
+  #642dea,
+  #5824d9,
+  #4d1cc8,
+  #4213b7
+);
+$bg-dark: radial-gradient(circle, #705746, #6f503b, #6d4931, #6b4226, #693b1c);
+$bg-steel: radial-gradient(circle, #b7b7ce, #a2a2b7, #8e8ea1, #7a7a8b, #676776);
+$bg-fairy: radial-gradient(circle, #d685ad, #c9719c, #bb5c8a, #ae4879, #a03168);
+
+$type-normal: #a8a77a;
+$type-fire: #ee8130;
+$type-water: #6390f0;
+$type-electric: #f7d02c;
+$type-grass: #7ac74c;
+$type-ice: #96d9d6;
+$type-fighting: #c22e28;
+$type-poinson: #a33ea1;
+$type-ground: #e2bf65;
+$type-flying: #a98ff3;
+$type-psychic: #f95587;
+$type-bug: #a6b91a;
+$type-rock: #b6a136;
+$type-ghost: #735797;
+$type-dragon: #6f35fc;
+$type-dark: #705746;
+$type-steel: #b7b7ce;
+$type-fairy: #d685ad;
