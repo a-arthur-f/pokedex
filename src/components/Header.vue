@@ -48,6 +48,7 @@ header {
   color: white;
   margin-bottom: 2rem;
   column-gap: 2rem;
+  z-index: 999;
 
   .logo {
     width: 16rem;
