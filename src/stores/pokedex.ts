@@ -31,9 +31,7 @@ export const usePokedexStore = defineStore("pokedex", () => {
     }
   }
 
-  onMounted(() =>
-    fetchPokemons("https://pokeapi.co/api/v2/pokemon?limit=21&offset=1200")
-  );
+  onMounted(() => fetchPokemons("https://pokeapi.co/api/v2/pokemon?limit=21"));
 
   return { pokedex, previous, next, fetchPokemons };
 });
