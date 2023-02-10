@@ -48,7 +48,6 @@ header {
   padding: 0.5rem 1rem;
   background-color: variables.$bg-header;
   color: white;
-  margin-bottom: 2rem;
   column-gap: 2rem;
   z-index: 999;
 
