@@ -7,9 +7,11 @@ export const usePokedexStore = defineStore("pokedex", () => {
   const count = ref(0);
   const next = ref("");
   const previous = ref("");
+  const loading = ref(false);
 
   async function fetchPokemons(url: string) {
     try {
+      loading.value = true;
       const {
         results: pokemons,
         count: total,
@@ -26,6 +28,8 @@ export const usePokedexStore = defineStore("pokedex", () => {
         const { data: pokemon } = await axios<Pokemon>(p.url);
         pokedex.value = [...pokedex.value, pokemon];
       }
+
+      loading.value = false;
     } catch (e) {
       console.log(e);
     }
@@ -33,7 +37,7 @@ export const usePokedexStore = defineStore("pokedex", () => {
 
   onMounted(() => fetchPokemons("https://pokeapi.co/api/v2/pokemon?limit=21"));
 
-  return { pokedex, previous, next, fetchPokemons };
+  return { pokedex, previous, next, fetchPokemons, loading };
 });
 
 interface FetchData {
