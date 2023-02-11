@@ -8,6 +8,7 @@ import { onMounted, ref, watch } from "vue";
 import { usePokedexStore } from "@/stores/pokedex";
 import { storeToRefs } from "pinia";
 import StatsBox from "@/components/StatsBox.vue";
+import config from "../config/config.json";
 
 const pokemon = ref<Pokemon>();
 const evolutionChain = ref<EvolutionChain>();
@@ -24,7 +25,7 @@ async function fetchPokemon() {
   try {
     loading.value = true;
     const { data: poke } = await axios<Pokemon>(
-      "https://pokeapi.co/api/v2/pokemon/" + route.params.id
+      `${config.baseUrl}/pokemon/${route.params.id}`
     );
     pokemon.value = poke;
     const specie = await fetchSpecie();
@@ -51,7 +52,7 @@ async function fetchEvolutionChain(specie: PokemonSpecie) {
 async function fetchSpecie() {
   try {
     const { data: specie } = await axios<PokemonSpecie>(
-      "https://pokeapi.co/api/v2/pokemon-species/" + route.params.id
+      `${config.baseUrl}/pokemon-species/${route.params.id}`
     );
 
     return specie;

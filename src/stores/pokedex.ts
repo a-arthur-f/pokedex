@@ -1,6 +1,7 @@
 import axios from "axios";
 import { defineStore } from "pinia";
 import { onMounted, ref } from "vue";
+import config from "../config/config.json";
 
 export const usePokedexStore = defineStore("pokedex", () => {
   const pokedex = ref<Pokemon[]>([]);
@@ -35,7 +36,7 @@ export const usePokedexStore = defineStore("pokedex", () => {
     }
   }
 
-  onMounted(() => fetchPokemons("https://pokeapi.co/api/v2/pokemon?limit=21"));
+  onMounted(() => fetchPokemons(`${config.baseUrl}/pokemon?limit=21`));
 
   return { pokedex, previous, next, fetchPokemons, loading };
 });

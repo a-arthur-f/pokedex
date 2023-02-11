@@ -2,6 +2,7 @@
 import axios from "axios";
 import PokemonList from "./PokemonList.vue";
 import { onMounted, ref } from "vue";
+import config from "../config/config.json";
 
 const { evolutionChain } = defineProps<{ evolutionChain: EvolutionChain }>();
 const pokeList = ref<Pokemon[]>();
@@ -13,7 +14,7 @@ onMounted(async () => {
 async function chainToPokeList() {
   const chainList: Array<Pokemon> = [];
   const { data: pokemon } = await axios<Pokemon>(
-    "https://pokeapi.co/api/v2/pokemon/" + evolutionChain.chain.species.name
+    `${config.baseUrl}/pokemon/${evolutionChain.chain.species.name}`
   );
 
   chainList.push(pokemon);
@@ -27,7 +28,7 @@ async function chainToPokeList() {
       if (chainLink.length === 0) return [];
       for (let e of chainLink) {
         const { data: pokemon } = await axios<Pokemon>(
-          "https://pokeapi.co/api/v2/pokemon/" + e.species.name
+          `${config.baseUrl}/pokemon/${e.species.name}`
         );
 
         evolutionCahin.push(pokemon);

@@ -4,6 +4,7 @@ import { usePokedexStore } from "@/stores/pokedex";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import config from "../config/config.json";
 
 const store = usePokedexStore();
 const { loading } = storeToRefs(store);
@@ -24,7 +25,7 @@ function onSubmit() {
       <img
         src="../assets/img/pokemon-png-logo.webp"
         class="logo"
-        @click="fetchPokemons('https://pokeapi.co/api/v2/pokemon?limit=21')"
+        @click="fetchPokemons(`${config.baseUrl}/pokemon?limit=21`)"
       />
     </RouterLink>
 
