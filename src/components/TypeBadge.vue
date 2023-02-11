@@ -19,6 +19,8 @@ defineProps<{ type: string }>();
     p {
       font-size: 1.2rem;
       text-transform: uppercase;
+      color: #fff;
+      font-weight: 600;
     }
 
     &.normal {
