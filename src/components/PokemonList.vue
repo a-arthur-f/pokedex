@@ -27,6 +27,14 @@ ul {
   a {
     all: unset;
     cursor: pointer;
+
+    & > div {
+      transition: scale 0.5s;
+    }
+
+    & > div:hover {
+      scale: (1.05);
+    }
   }
 
   @media (min-width: 768px) {
@@ -35,6 +43,15 @@ ul {
 
   @media (min-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  @keyframes teste {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-1rem);
+    }
   }
 }
 </style>
