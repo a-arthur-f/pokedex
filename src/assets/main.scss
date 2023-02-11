@@ -85,3 +85,14 @@
     background-image: variables.$bg-fairy;
   }
 }
+
+@keyframes load {
+  from {
+    opacity: 0;
+    gap: 0;
+  }
+  to {
+    opacity: 1;
+    gap: 2rem;
+  }
+}

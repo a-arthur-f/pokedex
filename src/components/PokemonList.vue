@@ -27,15 +27,4 @@ ul {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
-@keyframes load {
-  from {
-    opacity: 0;
-    gap: 0;
-  }
-  to {
-    opacity: 1;
-    gap: 2rem;
-  }
-}
 </style>
