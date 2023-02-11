@@ -19,7 +19,7 @@ function getStatBarWidth(baseStat: number): string {
 </script>
 
 <template>
-  <div class="stats-box__container">
+  <div class="stats-box__container bg-primary">
     <div class="stats-box__weight-height">
       <p>Weight: {{ pokemon.weight }}</p>
       <p>Height: {{ pokemon.height }}</p>
@@ -33,7 +33,7 @@ function getStatBarWidth(baseStat: number): string {
           {{ stat.stat.name.replace("-", " ") }}
         </p>
         <p class="stats-box__stat-base">{{ stat.base_stat }}</p>
-        <div class="stats-box__stat-bar">
+        <div class="stats-box__stat-bar bg-secondary">
           <div :style="getStatBarStyle(stat.base_stat)"></div>
         </div>
       </li>
@@ -46,7 +46,6 @@ function getStatBarWidth(baseStat: number): string {
 .stats-box {
   &__container {
     box-sizing: border-box;
-    background-color: variables.$bg-header;
     height: 100%;
     border-radius: 0.5rem;
     padding: 2rem 2rem;
@@ -95,7 +94,6 @@ function getStatBarWidth(baseStat: number): string {
     &-bar {
       height: 0.5rem;
       width: 100%;
-      background-color: variables.$bg-input;
 
       div {
         height: 100%;
@@ -107,7 +105,7 @@ function getStatBarWidth(baseStat: number): string {
 
   &__divider {
     width: 100%;
-    border: 1px solid variables.$bg-input;
+    border: 1px solid variables.$bg-secondary;
   }
 
   @keyframes chargeBar {

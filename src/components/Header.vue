@@ -20,7 +20,7 @@ function onSubmit() {
 </script>
 
 <template>
-  <header>
+  <header class="bg-primary">
     <RouterLink to="/">
       <img
         src="../assets/img/pokemon-png-logo.webp"
@@ -34,6 +34,7 @@ function onSubmit() {
         type="text"
         placeholder="search by name or id"
         v-model="searchValue"
+        class="bg-secondary"
       />
 
       <button type="submit" :class="loading ? 'loading' : ''">
@@ -52,7 +53,6 @@ header {
   top: 0;
   width: 100%;
   padding: 0.5rem 1rem;
-  background-color: variables.$bg-header;
   color: white;
   column-gap: 2rem;
   z-index: 999;
@@ -69,12 +69,12 @@ header {
     gap: 1.5rem;
 
     input {
-      all: unset;
+      border: none;
+      outline: none;
       width: 100%;
       height: 2.5rem;
       padding: 0.5rem 1rem;
       border-radius: 4px;
-      background-color: variables.$bg-input;
       color: #fff;
     }
 

@@ -46,7 +46,7 @@ async function chainToPokeList() {
 </script>
 
 <template>
-  <div class="evolution-chain__container" v-if="pokeList">
+  <div class="evolution-chain__container bg-secondary" v-if="pokeList">
     <p class="evolution-chain__title">Evolution chain</p>
     <PokemonList :pokemons="pokeList" />
   </div>
@@ -56,7 +56,6 @@ async function chainToPokeList() {
 @use "../assets/variables";
 .evolution-chain {
   &__container {
-    background-color: variables.$bg-input;
     padding: 2rem 2rem;
     border-radius: 0.5rem;
 
