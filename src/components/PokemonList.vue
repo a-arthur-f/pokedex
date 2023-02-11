@@ -6,11 +6,13 @@ defineProps<{ pokemons: Pokemon[] }>();
 
 <template>
   <ul>
-    <li v-for="pokemon of pokemons">
-      <RouterLink :to="'/details/' + pokemon.name">
-        <PokemonCard :pokemon="pokemon" />
-      </RouterLink>
-    </li>
+    <template v-for="pokemon of pokemons">
+      <li v-if="pokemon.sprites.other.home.front_default">
+        <RouterLink :to="'/details/' + pokemon.name">
+          <PokemonCard :pokemon="pokemon" />
+        </RouterLink>
+      </li>
+    </template>
   </ul>
 </template>
 
