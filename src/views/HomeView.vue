@@ -4,6 +4,7 @@ import Button from "@/components/Button.vue";
 import { usePokedexStore } from "../stores/pokedex";
 import { storeToRefs } from "pinia";
 import PokemonList from "@/components/PokemonList.vue";
+import FilterByTypeList from "@/components/FilterByTypeList.vue";
 
 const store = usePokedexStore();
 
@@ -13,8 +14,9 @@ const { fetchPokemons } = store;
 
 <template>
   <MainContainer v-if="!loading" class="home__container">
+    <FilterByTypeList />
     <PokemonList :pokemons="pokedex" />
-    <div class="home__button-container">
+    <div class="home__button-container" v-if="previous || next">
       <Button
         :disabled="!previous"
         @click="fetchPokemons(previous)"
