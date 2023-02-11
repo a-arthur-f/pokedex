@@ -20,7 +20,7 @@ function padID(id: number): string | number {
 
     <ul class="pokemon-card__type-list">
       <li v-for="{ type: pokeType } of pokemon.types">
-        <TypeBadge :type="pokeType" />
+        <TypeBadge :type="pokeType.name" />
       </li>
     </ul>
   </div>

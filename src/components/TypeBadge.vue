@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-defineProps<{ type: NamedApiResource }>();
+defineProps<{ type: string }>();
 </script>
 
 <template>
-  <div :class="`type-badge__container ${type.name}`">
-    <p>{{ type.name }}</p>
+  <div :class="`type-badge__container ${type}`">
+    <p>{{ type }}</p>
   </div>
 </template>
 
