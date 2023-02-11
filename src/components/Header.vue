@@ -14,7 +14,7 @@ const router = useRouter();
 
 function onSubmit() {
   if (!searchValue.value) return;
-  router.push("/details/" + searchValue.value);
+  router.push("/details/" + searchValue.value.toLocaleLowerCase());
   searchValue.value = "";
 }
 </script>
