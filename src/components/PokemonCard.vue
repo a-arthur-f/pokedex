@@ -8,7 +8,7 @@ function padID(id: number): string | number {
 </script>
 
 <template>
-  <li :class="'pokemon-card__container bg-' + pokemon.types[0].type.name">
+  <div :class="'pokemon-card__container bg-' + pokemon.types[0].type.name">
     <figure>
       <img
         :src="pokemon.sprites.other.home.front_default"
@@ -23,7 +23,7 @@ function padID(id: number): string | number {
         <TypeBadge :type="pokeType" />
       </li>
     </ul>
-  </li>
+  </div>
 </template>
 
 <style lang="scss" scoped>
