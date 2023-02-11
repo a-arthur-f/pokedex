@@ -32,7 +32,7 @@ function onSubmit() {
     <form @submit.prevent="onSubmit">
       <input
         type="text"
-        placeholder="search by name or id"
+        placeholder="Search by name or id"
         v-model="searchValue"
         class="bg-secondary"
       />
@@ -76,6 +76,11 @@ header {
       padding: 0.5rem 1rem;
       border-radius: 4px;
       color: #fff;
+
+      &::placeholder {
+        color: #fff;
+        opacity: 0.5;
+      }
     }
 
     button {
