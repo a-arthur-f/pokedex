@@ -28,10 +28,10 @@ export const usePokedexStore = defineStore("pokedex", () => {
         const { data: pokemon } = await axios<Pokemon>(p.url);
         pokedex.value = [...pokedex.value, pokemon];
       }
-
-      loading.value = false;
     } catch (e) {
       console.log(e);
+    } finally {
+      loading.value = false;
     }
   }
 
