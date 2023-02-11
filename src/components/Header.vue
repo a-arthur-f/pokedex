@@ -3,19 +3,24 @@ import PokeballIcon from "./icons/PokeballIcon.vue";
 import { usePokedexStore } from "@/stores/pokedex";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+
 const store = usePokedexStore();
 const { loading } = storeToRefs(store);
 const { fetchPokemons } = store;
 const searchValue = ref("");
+const router = useRouter();
 
 function onSubmit() {
-  //todo
+  if (!searchValue.value) return;
+  router.push("/details/" + searchValue.value);
+  searchValue.value = "";
 }
 </script>
 
 <template>
   <header>
-    <RouterLink to="">
+    <RouterLink to="/">
       <img
         src="../assets/img/pokemon-png-logo.webp"
         class="logo"
