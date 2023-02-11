@@ -1,19 +1,24 @@
 <script lang="ts" setup>
 import MainContainer from "@/components/MainContainer.vue";
 import PokemonCard from "@/components/PokemonCard.vue";
+import EvolutionChain from "@/components/EvolutionChain.vue";
 import { useRoute, useRouter } from "vue-router";
 import axios from "axios";
-import { onMounted, ref, watch, type CSSProperties } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { usePokedexStore } from "@/stores/pokedex";
 import { storeToRefs } from "pinia";
 import StatsBox from "@/components/StatsBox.vue";
 
 const pokemon = ref<Pokemon>();
+const evolutionChain = ref<EvolutionChain>();
 const store = usePokedexStore();
 const { loading } = storeToRefs(store);
 
 const route = useRoute();
 const router = useRouter();
+
+onMounted(fetchPokemon);
+watch(() => route.params.id, fetchPokemon);
 
 async function fetchPokemon() {
   try {
@@ -22,6 +27,8 @@ async function fetchPokemon() {
       "https://pokeapi.co/api/v2/pokemon/" + route.params.id
     );
     pokemon.value = poke;
+    const specie = await fetchSpecie();
+    evolutionChain.value = await fetchEvolutionChain(specie);
   } catch (e) {
     console.log(e);
     router.push("/");
@@ -30,15 +37,36 @@ async function fetchPokemon() {
   }
 }
 
-onMounted(fetchPokemon);
-watch(() => route.params.id, fetchPokemon);
+async function fetchEvolutionChain(specie: PokemonSpecie) {
+  try {
+    const { data: chain } = await axios<EvolutionChain>(
+      specie.evolution_chain.url
+    );
+    return chain;
+  } catch (e) {
+    throw e;
+  }
+}
+
+async function fetchSpecie() {
+  try {
+    const { data: specie } = await axios<PokemonSpecie>(
+      "https://pokeapi.co/api/v2/pokemon-species/" + route.params.id
+    );
+
+    return specie;
+  } catch (e) {
+    throw e;
+  }
+}
 </script>
 
 <template>
-  <MainContainer v-if="pokemon && !loading">
+  <MainContainer v-if="pokemon && evolutionChain && !loading">
     <div class="details__container">
       <PokemonCard class="details__pokemon-card" :pokemon="pokemon" />
       <StatsBox :pokemon="pokemon" />
+      <EvolutionChain :evolutionChain="evolutionChain" />
     </div>
   </MainContainer>
 </template>
@@ -57,10 +85,6 @@ watch(() => route.params.id, fetchPokemon);
     @media (min-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: 1fr;
-    }
-
-    .divider {
-      border: 1px solid variables.$bg-input;
     }
   }
 }
