@@ -33,16 +33,53 @@ export const usePokedexStore = defineStore("pokedex", () => {
     }
   }
 
-  async function setPokedex(pokemons: NamedApiResource[]) {
-    for (let p of pokemons) {
-      const { data: pokemon } = await axios<Pokemon>(p.url);
-      pokedex.value = [...pokedex.value, pokemon];
+  async function fetchPokemonsByType(url: string) {
+    try {
+      loading.value = true;
+      const { pokemon: pokemons } = (await axios<FetchDataByType>(url)).data;
+
+      next.value = "";
+      previous.value = "";
+      pokedex.value = [];
+
+      await setPokedex(pokemons);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      loading.value = false;
     }
+  }
+
+  async function setPokedex(pokemons: NamedApiResource[] | PokemonList[]) {
+    if (isNameResourceList(pokemons)) {
+      for (let p of pokemons) {
+        const { data: pokemon } = await axios<Pokemon>(p.url);
+        pokedex.value = [...pokedex.value, pokemon];
+      }
+    } else {
+      for (let p of pokemons) {
+        const { data: pokemon } = await axios<Pokemon>(p.pokemon.url);
+        pokedex.value = [...pokedex.value, pokemon];
+      }
+    }
+  }
+
+  function isNameResourceList(
+    pokemons: NamedApiResource[] | PokemonList[]
+  ): pokemons is NamedApiResource[] {
+    return (pokemons as NamedApiResource[])[0].name !== undefined;
   }
 
   onMounted(() => fetchPokemons(`${config.baseUrl}/pokemon?limit=21`));
 
-  return { pokedex, previous, next, fetchPokemons, loading };
+  return {
+    pokedex,
+    previous,
+    next,
+    fetchPokemons,
+    fetchPokemonsByType,
+    loading,
+  };
 });
 
 interface FetchData {
@@ -51,3 +88,10 @@ interface FetchData {
   previous: string;
   results: NamedApiResource[];
 }
+
+interface FetchDataByType {
+  pokemon: PokemonList[];
+  id: number;
+}
+
+type PokemonList = { pokemon: NamedApiResource };
