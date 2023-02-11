@@ -16,13 +16,21 @@ function getBarColor(baseStat: number) {
 function getStatBarWidth(baseStat: number): string {
   return baseStat < 100 ? `${baseStat}%` : "100%";
 }
+
+function decimeterToM(dec: number) {
+  return (dec * 10) / 100;
+}
+
+function hectogramToKg(hec: number) {
+  return hec / 10;
+}
 </script>
 
 <template>
   <div class="stats-box__container bg-primary">
     <div class="stats-box__weight-height">
-      <p>Weight: {{ pokemon.weight }}</p>
-      <p>Height: {{ pokemon.height }}</p>
+      <p>Weight: {{ hectogramToKg(pokemon.weight) }}kg</p>
+      <p>Height: {{ decimeterToM(pokemon.height) }}m</p>
     </div>
 
     <div class="stats-box__divider"></div>
@@ -70,6 +78,10 @@ function getStatBarWidth(baseStat: number): string {
     justify-content: space-between;
     font-size: 1rem;
     gap: 4rem;
+
+    p {
+      white-space: nowrap;
+    }
   }
 
   &__stats-list {
