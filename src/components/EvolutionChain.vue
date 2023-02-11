@@ -1,10 +1,11 @@
 <script lang="ts" setup>
 import axios from "axios";
 import PokemonList from "./PokemonList.vue";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, toRefs } from "vue";
 import config from "../config/config.json";
 
-const { evolutionChain } = defineProps<{ evolutionChain: EvolutionChain }>();
+const props = defineProps<{ evolutionChain: EvolutionChain }>();
+const { evolutionChain } = toRefs(props);
 const pokeList = ref<Pokemon[]>();
 
 onMounted(async () => {
@@ -14,11 +15,11 @@ onMounted(async () => {
 async function chainToPokeList() {
   const chainList: Array<Pokemon> = [];
   const { data: pokemon } = await axios<Pokemon>(
-    `${config.baseUrl}/pokemon/${evolutionChain.chain.species.name}`
+    `${config.baseUrl}/pokemon/${evolutionChain.value.chain.species.name}`
   );
 
   chainList.push(pokemon);
-  chainList.push(...(await recursive(evolutionChain.chain.evolves_to)));
+  chainList.push(...(await recursive(evolutionChain.value.chain.evolves_to)));
 
   pokeList.value = chainList;
 

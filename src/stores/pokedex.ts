@@ -52,12 +52,12 @@ export const usePokedexStore = defineStore("pokedex", () => {
 
   async function setPokedex(pokemons: NamedApiResource[] | PokemonList[]) {
     if (isNameResourceList(pokemons)) {
-      for (let p of pokemons) {
+      for (const p of pokemons) {
         const { data: pokemon } = await axios<Pokemon>(p.url);
         pokedex.value = [...pokedex.value, pokemon];
       }
     } else {
-      for (let p of pokemons) {
+      for (const p of pokemons) {
         const { data: pokemon } = await axios<Pokemon>(p.pokemon.url);
         pokedex.value = [...pokedex.value, pokemon];
       }
