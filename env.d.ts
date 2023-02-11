@@ -38,6 +38,20 @@ interface PokemonSprites {
   };
 }
 
+interface PokemonSpecie {
+  evolution_chain: { url: string };
+}
+
+interface EvolutionChain {
+  id: number;
+  chain: ChainLink;
+}
+
+interface ChainLink {
+  species: NamedApiResource;
+  evolves_to: ChainLink[];
+}
+
 interface NamedApiResource {
   name: string;
   url: string;
