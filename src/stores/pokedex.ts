@@ -25,14 +25,18 @@ export const usePokedexStore = defineStore("pokedex", () => {
       previous.value = previousUrl;
       pokedex.value = [];
 
-      for (let p of pokemons) {
-        const { data: pokemon } = await axios<Pokemon>(p.url);
-        pokedex.value = [...pokedex.value, pokemon];
-      }
+      await setPokedex(pokemons);
     } catch (e) {
       console.log(e);
     } finally {
       loading.value = false;
+    }
+  }
+
+  async function setPokedex(pokemons: NamedApiResource[]) {
+    for (let p of pokemons) {
+      const { data: pokemon } = await axios<Pokemon>(p.url);
+      pokedex.value = [...pokedex.value, pokemon];
     }
   }
 
