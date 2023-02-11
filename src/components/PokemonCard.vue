@@ -35,7 +35,7 @@ function padID(id: number): string | number {
     align-items: center;
     border-radius: 8px;
     color: #fff;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
     font-weight: 600;
 
     figure {
